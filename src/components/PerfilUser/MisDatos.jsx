@@ -58,13 +58,13 @@ const MisDatos = () => {
     setRatingsDisplay(superArray);
   }, [dispatch, activityList, userRatingList]);
 
-  const handleClickStar = (activityId, value) => {
+  const handleClickStar = async (activityId, value) => {
     const obj = {
       activityId: activityId,
       userId: userls.findUser.id,
       value: value,
     };
-    dispatch(postRating(obj));
+    await dispatch(postRating(obj));
     window.location.href = `/MisDatos/${userls.findUser.id}`;
   };
 
